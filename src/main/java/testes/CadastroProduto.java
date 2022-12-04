@@ -1,7 +1,9 @@
-package loja.modelo;
+package testes;
 
 import dao.CategoriaDao;
 import dao.ProdutoDao;
+import loja.modelo.Categoria;
+import loja.modelo.Produto;
 import util.JPAutil;
 
 import javax.persistence.EntityManager;
