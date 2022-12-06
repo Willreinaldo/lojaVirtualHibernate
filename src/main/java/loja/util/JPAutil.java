@@ -1,4 +1,4 @@
-package util;
+package loja.util;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

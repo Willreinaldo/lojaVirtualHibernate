@@ -1,4 +1,4 @@
-package dao;
+package loja.dao;
 
 import loja.modelo.Categoria;
 import javax.persistence.EntityManager;

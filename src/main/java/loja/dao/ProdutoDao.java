@@ -1,8 +1,6 @@
-package dao;
+package loja.dao;
 
-import loja.modelo.Categoria;
 import loja.modelo.Produto;
-import util.JPAutil;
 
 import javax.persistence.EntityManager;
 import java.math.BigDecimal;

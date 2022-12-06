@@ -1,14 +1,12 @@
-package testes;
+package loja.testes;
 
-import dao.CategoriaDao;
-import dao.ProdutoDao;
+import loja.dao.CategoriaDao;
+import loja.dao.ProdutoDao;
 import loja.modelo.Categoria;
 import loja.modelo.Produto;
-import util.JPAutil;
+import loja.util.JPAutil;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import java.math.BigDecimal;
 import java.util.List;
 

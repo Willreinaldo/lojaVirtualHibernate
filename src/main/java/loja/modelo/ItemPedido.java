@@ -2,6 +2,7 @@ package loja.modelo;
 
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 
 @Entity
@@ -10,7 +11,9 @@ public class ItemPedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String precoUnitario;
+
+    @Column(name="preco")
+    private BigDecimal precoUnitario;
     private int quantidade;
 
     public ItemPedido(){
@@ -18,6 +21,7 @@ public class ItemPedido {
     public ItemPedido(int quantidade, Pedido pedido, Produto produto) {
         this.quantidade = quantidade;
         this.pedido = pedido;
+        this.precoUnitario = produto.getPreco();
         this.produto = produto;
     }
 
@@ -35,11 +39,11 @@ public class ItemPedido {
         this.id = id;
     }
 
-    public String getPrecoUnitario() {
+    public BigDecimal getPrecoUnitario() {
         return precoUnitario;
     }
 
-    public void setPrecoUnitario(String precoUnitario) {
+    public void setPrecoUnitario(BigDecimal precoUnitario) {
         this.precoUnitario = precoUnitario;
     }
 
@@ -65,5 +69,9 @@ public class ItemPedido {
 
     public void setProduto(Produto produto) {
         this.produto = produto;
+    }
+
+    public BigDecimal geValor() {
+        return precoUnitario.multiply(new BigDecimal(quantidade));
     }
 }
