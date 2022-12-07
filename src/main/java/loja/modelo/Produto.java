@@ -6,7 +6,6 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "produtos")
-@NamedQuery(name = "produtosPorCategoria", query = "SELECT p FROM PRoduto p WHERE p.categoria.nome = :nome)")
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

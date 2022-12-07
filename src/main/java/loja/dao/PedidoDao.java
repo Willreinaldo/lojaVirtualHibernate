@@ -4,7 +4,13 @@ import loja.modelo.Pedido;
 import loja.modelo.Produto;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 public class PedidoDao {
@@ -39,6 +45,11 @@ public class PedidoDao {
                 + "GROUP BY produto.nome "
                 + "ORDER BY item.quantidade DESC";
         return em.createQuery(jpql, RelatorioDeVendasVo.class).getResultList();
+    }
+    public Pedido buscarPedidoComCliente(Long id){
+        return em.createQuery("SELECT p FROM Pedido p JOIN FETCH p.cliente WHERE p.id = :id",Pedido.class)
+                .setParameter("id",id)
+                .getSingleResult();
     }
 }
 
